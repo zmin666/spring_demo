@@ -1,10 +1,12 @@
 package com.zmin.helloword.demo.model;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Reader {
     private String name;
     private int age;
