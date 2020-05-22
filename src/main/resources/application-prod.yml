@@ -1,0 +1,8 @@
+server:
+  port: 8889
+
+#这个配置可以统一model中日期格式. 就不需要每个都写date的格式
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
