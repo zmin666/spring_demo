@@ -25,25 +25,26 @@ public class ArticleRestJDBCServiceImpl implements ArticleRestService {
     @Transactional
     @Override
     public Article saveArticle(Article article) {
-        articleJDBCDAO.save(article,primaryJdbcTemplate);
-        articleJDBCDAO.save(article,secondaryJdbcTemplate);
+        articleJDBCDAO.save(article, primaryJdbcTemplate);
+        articleJDBCDAO.save(article, secondaryJdbcTemplate);
         log.info("saveArticle：{}", article);
+        int a = 2 / 0;
         return article;
     }
 
     @Override
     public void deleteArticle(Long id) {
-        articleJDBCDAO.deleteById(id,primaryJdbcTemplate);
+        articleJDBCDAO.deleteById(id, primaryJdbcTemplate);
     }
 
     @Override
     public void updateArticle(Article article) {
-        articleJDBCDAO.updateById(article,primaryJdbcTemplate);
+        articleJDBCDAO.updateById(article, primaryJdbcTemplate);
     }
 
     @Override
     public Article getArticle(Long id) {
-        return articleJDBCDAO.findById(id,primaryJdbcTemplate);
+        return articleJDBCDAO.findById(id, primaryJdbcTemplate);
     }
 
     @Override
