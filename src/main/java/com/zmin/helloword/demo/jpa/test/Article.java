@@ -1,4 +1,4 @@
-package com.zmin.helloword.demo.dao;
+package com.zmin.helloword.demo.jpa.test;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

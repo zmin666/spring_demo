@@ -1,7 +1,9 @@
 package com.zmin.helloword.demo.service;
 
-import com.zmin.helloword.demo.dao.Article;
-import com.zmin.helloword.demo.dao.ArticleRepository;
+import com.zmin.helloword.demo.jpa.test.Article;
+import com.zmin.helloword.demo.jpa.test.ArticleRepository;
+import com.zmin.helloword.demo.jpa.test2.Message;
+import com.zmin.helloword.demo.jpa.test2.MessageRepository;
 import com.zmin.helloword.demo.model.ArticleVO;
 import com.zmin.helloword.demo.utils.DozerUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -21,12 +23,20 @@ public class ArticleRestJPAServiceImpl implements ArticleRestJPAService {
     private ArticleRepository articleRepository;
 
     @Resource
+    private MessageRepository messageRepository;
+
+    @Resource
     private Mapper dozerMapper;
 
     public ArticleVO saveArticle(ArticleVO article) {
 
         Article articlePO = dozerMapper.map(article, Article.class);
         articleRepository.save(articlePO);    //保存一个对象到数据库，insert
+
+        Message message = new Message();
+        message.setName("kobe");
+        message.setContent("退役啦");
+        messageRepository.save(message);
 
         return article;
     }
