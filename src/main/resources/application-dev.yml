@@ -8,12 +8,12 @@ spring:
     time-zone: GMT+8
   datasource:
     primary:
-        jdbc-url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
+        url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
         username: root
         password: 123456
         driver-class-name: com.mysql.jdbc.Driver
     secondary:
-        jdbc-url: jdbc:mysql://localhost:3306/test2?useSSL=false&serverTimezone=UTC
+        url: jdbc:mysql://localhost:3306/test2?useSSL=false&serverTimezone=UTC
         username: root
         password: 123456
         driver-class-name: com.mysql.jdbc.Driver
@@ -22,3 +22,11 @@ spring:
       ddl-auto: update
     database: mysql
     show-sql: true
+  jta:
+    atomikos:
+      datasource:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
+      connectionfactory:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
